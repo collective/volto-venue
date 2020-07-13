@@ -8,16 +8,13 @@ import './OSMMap.css';
  * aggiungere il <link> agli stili di leaflet con helmet
  */
 
-const OSMMap = ({ position, zoom = 15 }) => (
+const OSMMap = ({ position, onMarkerDragEnd, zoom = 15 }) => (
   <Map center={position} zoom={zoom} id="geocoded-result">
     <TileLayer
       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    {/* TODO: gestione drag n drop con callback onMarkerDragEnd
-     * ({ latitude, longitude }) => {}
-     */}
-    <Marker position={position} />
+    <Marker position={position} draggable={true} onDragend={onMarkerDragEnd} />
   </Map>
 );
 
