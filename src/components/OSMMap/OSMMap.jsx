@@ -27,4 +27,4 @@ OSMMap.propTypes = {
   onMarkerDragEnd: PropTypes.func,
 };
 
-export default OSMMap;
+export default React.memo(OSMMap);
