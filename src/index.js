@@ -1,7 +1,11 @@
-import OSMMap from './components/OSMMap/OSMMap';
-import GeoLocationWidget from './components/Widgets/GeoLocationWidget/GeoLocationWidget';
+import React from 'react';
+import loadable from '@loadable/component';
 
-export default {
-  GeoLocationWidget,
-  OSMMap,
-};
+export const GeoLocationWidget = loadable(
+  () => import('./components/Widgets/GeoLocationWidget/GeoLocationWidget'),
+  { fallback: <div>Loading...</div> },
+);
+
+export const OSMMap = loadable(() => import('./components/OSMMap/OSMMap'), {
+  fallback: <div>Loading...</div>,
+});
