@@ -6,9 +6,7 @@ import { settings } from '~/config';
 import { OSMMap } from '../../../';
 
 import './GeoLocationWidget.css';
-import { Helmet } from '@plone/volto/helpers';
 
-/* TODO i18n */
 const messages = defineMessages({
   geolocation: {
     id: 'geolocation',
@@ -60,7 +58,6 @@ const GeoLocationWidget = ({
     longitude:
       value?.longitude ?? settings?.defaultVenueLocation?.longitude ?? 0,
   });
-  console.log(formData);
 
   const doSearch = async () => {
     // According to the api reference, let's try to use format like
@@ -94,23 +91,14 @@ const GeoLocationWidget = ({
     onChange(id, geolocation);
   }, [geolocation]);
 
-  const onDragend = (params) => {
+  const onDragend = ({ target }) =>
     setGeolocation({
-      latitude: params.target._latlng.lat,
-      longitude: params.target._latlng.lng,
+      latitude: target._latlng.lat,
+      longitude: target._latlng.lng,
     });
-  };
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossOrigin=""
-        />
-      </Helmet>
       <Form.Field inline required={required} id={id}>
         <Grid>
           <Grid.Row stretched>
@@ -140,11 +128,10 @@ const GeoLocationWidget = ({
                 <OSMMap
                   position={[geolocation.latitude, geolocation.longitude]}
                   onMarkerDragEnd={onDragend}
-                  draggable={true}
+                  draggable
                 />
               )}
               <div className="geolocation-selected-wrapper">
-                {/* TODO: da pensarci/graficare ASK SERENA / IRENE */}
                 <span className="geolocation-selected">
                   <small>
                     {`${intl.formatMessage(messages.geolocationSelected)} `}
