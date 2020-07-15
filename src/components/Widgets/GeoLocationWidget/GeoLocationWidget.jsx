@@ -6,6 +6,7 @@ import { settings } from '~/config';
 import { OSMMap } from '../../../';
 
 import './GeoLocationWidget.css';
+import { Helmet } from '@plone/volto/helpers';
 
 /* TODO i18n */
 const messages = defineMessages({
@@ -28,6 +29,14 @@ const messages = defineMessages({
   searchOnMap: {
     id: 'searchOnMap',
     defaultMessage: 'Search address on map',
+  },
+  latitude: {
+    id: 'latitude',
+    defaultMessage: 'Latitude',
+  },
+  longitude: {
+    id: 'longitude',
+    defaultMessage: 'Longitude',
   },
 });
 
@@ -60,7 +69,7 @@ const GeoLocationWidget = ({
     const searchAddress = [
       formData?.street,
       formData?.city,
-      formData?.country,
+      formData?.country?.title,
       formData?.zip_code,
     ]
       .filter(Boolean)
@@ -93,70 +102,83 @@ const GeoLocationWidget = ({
   };
 
   return (
-    <Form.Field inline required={required} id={id}>
-      <Grid>
-        <Grid.Row stretched>
-          <Grid.Column width="4">
-            <div className="wrapper">
-              <label htmlFor="geolocation-search">
-                {title ?? intl.formatMessage(messages.geolocation)}
-              </label>
-            </div>
-          </Grid.Column>
-          <Grid.Column width="8" className="geolocation-widget">
-            <Button
-              onClick={doSearch}
-              type="button"
-              disabled={
-                formData.country ||
-                formData.city ||
-                formData.zip_code ||
-                formData.street
-                  ? false
-                  : true
-              }
-            >
-              {intl.formatMessage(messages.searchOnMap)}
-            </Button>
-            {__CLIENT__ && (
-              <OSMMap
-                position={[geolocation.latitude, geolocation.longitude]}
-                onMarkerDragEnd={onDragend}
-              />
-            )}
-            <div className="geolocation-selected-wrapper">
-              {/* TODO: da pensarci/graficare ASK SERENA / IRENE */}
-              <span className="geolocation-selected">
-                <small>
-                  {`${intl.formatMessage(messages.geolocationSelected)}: `}
-                </small>
-                Latitude {geolocation.latitude}, Longitude:{' '}
-                {geolocation.longitude}
-              </span>
-              <Button
-                type="button"
-                icon="trash"
-                size="mini"
-                title={intl.formatMessage(messages.geolocationClear)}
-                onClick={() => {
-                  setGeolocation({
-                    latitude: 0.0,
-                    longitude: 0.0,
-                  });
-                }}
-              />
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-        {description && (
+    <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossOrigin=""
+        />
+      </Helmet>
+      <Form.Field inline required={required} id={id}>
+        <Grid>
           <Grid.Row stretched>
-            <Grid.Column stretched width="12">
-              <p className="help">{description}</p>
+            <Grid.Column width="4">
+              <div className="wrapper">
+                <label htmlFor="geolocation-search">
+                  {title ?? intl.formatMessage(messages.geolocation)}
+                </label>
+              </div>
+            </Grid.Column>
+            <Grid.Column width="8" className="geolocation-widget">
+              <Button
+                onClick={doSearch}
+                type="button"
+                disabled={
+                  formData.country ||
+                  formData.city ||
+                  formData.zip_code ||
+                  formData.street
+                    ? false
+                    : true
+                }
+              >
+                {intl.formatMessage(messages.searchOnMap)}
+              </Button>
+              {__CLIENT__ && (
+                <OSMMap
+                  position={[geolocation.latitude, geolocation.longitude]}
+                  onMarkerDragEnd={onDragend}
+                  draggable={true}
+                />
+              )}
+              <div className="geolocation-selected-wrapper">
+                {/* TODO: da pensarci/graficare ASK SERENA / IRENE */}
+                <span className="geolocation-selected">
+                  <small>
+                    {`${intl.formatMessage(messages.geolocationSelected)} `}
+                    {intl.formatMessage(messages.latitude)}:{' '}
+                    {geolocation.latitude},{' '}
+                    {intl.formatMessage(messages.longitude)}:{' '}
+                    {geolocation.longitude}
+                  </small>
+                </span>
+                <Button
+                  type="button"
+                  icon="trash"
+                  size="mini"
+                  title={intl.formatMessage(messages.geolocationClear)}
+                  onClick={() => {
+                    setGeolocation({
+                      latitude: 0.0,
+                      longitude: 0.0,
+                    });
+                  }}
+                />
+              </div>
             </Grid.Column>
           </Grid.Row>
-        )}
-      </Grid>
-    </Form.Field>
+          {description && (
+            <Grid.Row stretched>
+              <Grid.Column stretched width="12">
+                <p className="help">{description}</p>
+              </Grid.Column>
+            </Grid.Row>
+          )}
+        </Grid>
+      </Form.Field>
+    </>
   );
 };
 
