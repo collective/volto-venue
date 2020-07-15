@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Button, Grid, Form } from 'semantic-ui-react';
+import { debounce } from 'lodash';
 import { settings } from '~/config';
 
 import { OSMMap } from '../../../';
@@ -38,6 +39,16 @@ const messages = defineMessages({
   },
 });
 
+const useDebouncedCallback = (callback, delay) => {
+  const callbackRef = useRef();
+  callbackRef.current = callback;
+
+  return useCallback(
+    debounce((...args) => callbackRef.current(...args), delay),
+    [],
+  );
+};
+
 const GeoLocationWidget = ({
   value,
   id,
@@ -62,7 +73,6 @@ const GeoLocationWidget = ({
   const doSearch = async () => {
     // According to the api reference, let's try to use format like
     // "380 New York St, Redlands, CA 92373"
-    // const searchAddress = 'via Nino Bixio 4, Ferrara';
     const searchAddress = [
       formData?.street,
       formData?.city,
@@ -71,7 +81,7 @@ const GeoLocationWidget = ({
     ]
       .filter(Boolean)
       .join(', ');
-    // console.log('searching for: ' + searchAddress);
+
     try {
       const response = await fetch(
         `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${searchAddress}&outFields=Match_addr,Addr_type`,
@@ -91,11 +101,14 @@ const GeoLocationWidget = ({
     onChange(id, geolocation);
   }, [geolocation]);
 
-  const onDragend = ({ target }) =>
-    setGeolocation({
-      latitude: target._latlng.lat,
-      longitude: target._latlng.lng,
-    });
+  const onDragend = useDebouncedCallback(
+    ({ target }) =>
+      setGeolocation({
+        latitude: target._latlng.lat,
+        longitude: target._latlng.lng,
+      }),
+    600,
+  );
 
   return (
     <>
@@ -134,11 +147,11 @@ const GeoLocationWidget = ({
               <div className="geolocation-selected-wrapper">
                 <span className="geolocation-selected">
                   <small>
-                    {`${intl.formatMessage(messages.geolocationSelected)} `}
-                    {intl.formatMessage(messages.latitude)}:{' '}
-                    {geolocation.latitude},{' '}
-                    {intl.formatMessage(messages.longitude)}:{' '}
-                    {geolocation.longitude}
+                    {`${intl.formatMessage(messages.geolocationSelected)} 
+                    ${intl.formatMessage(messages.latitude)}: 
+                    ${geolocation.latitude.toFixed(5)}, 
+                    ${intl.formatMessage(messages.longitude)}: 
+                    ${geolocation.longitude.toFixed(5)}`}
                   </small>
                 </span>
                 <Button
