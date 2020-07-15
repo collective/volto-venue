@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import L from 'leaflet';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { Helmet } from '@plone/volto/helpers';
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
 import './OSMMap.css';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const OSMMap = ({
   position,
