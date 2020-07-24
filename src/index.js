@@ -1,11 +1,12 @@
 import { GeoLocationWidget } from './components';
 
-const applyConfig = (config) => {
-  console.log('\n\nCONFIG VOLTO VENUE\n\n');
+const applyConfig = config => {
   config.widgets.id = {
     ...config.widgets.id,
     geolocation: GeoLocationWidget,
   };
+
+  return config;
 };
 
 export default applyConfig;

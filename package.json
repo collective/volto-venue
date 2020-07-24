@@ -1,19 +1,19 @@
 {
-  "name": "volto-venue",
-  "version": "0.1.0",
-  "description": "Volto addon as a frontend for collective.venue",
-  "main": "src/index.js",
-  "repository": "https://github.com/collective/volto-venue.git",
-  "author": "Nicola Zambello",
-  "license": "MIT",
-  "devDependencies": {
-    "release-it": "*"
-  },
-  "scripts": {
-    "release": "release-it"
-  },
-  "dependencies": {
-    "leaflet": "1.6.0",
-    "react-leaflet": "2.7.0"
-  }
+    "name": "volto-venue",
+    "version": "0.1.0",
+    "description": "Volto addon as a frontend for collective.venue",
+    "main": "src/index.js",
+    "repository": "https://github.com/collective/volto-venue.git",
+    "author": "Nicola Zambello",
+    "license": "MIT",
+    "devDependencies": {
+        "release-it": "*"
+    },
+    "scripts": {
+        "release": "release-it"
+    },
+    "dependencies": {
+        "leaflet": "1.6.0",
+        "react-leaflet": "2.7.0"
+    }
 }
