@@ -1,11 +1,11 @@
-import React from 'react';
-import loadable from '@loadable/component';
+import { GeoLocationWidget } from './components';
 
-export const GeoLocationWidget = loadable(
-  () => import('./components/Widgets/GeoLocationWidget/GeoLocationWidget'),
-  { fallback: <div>Loading...</div> },
-);
+const applyConfig = (config) => {
+  console.log('\n\nCONFIG VOLTO VENUE\n\n');
+  config.widgets.id = {
+    ...config.widgets.id,
+    geolocation: GeoLocationWidget,
+  };
+};
 
-export const OSMMap = loadable(() => import('./components/OSMMap/OSMMap'), {
-  fallback: <div>Loading...</div>,
-});
+export default applyConfig;
