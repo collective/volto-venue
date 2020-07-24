@@ -1,6 +1,7 @@
-import { GeoLocationWidget } from './components';
+import { GeoLocationWidget } from 'volto-venue/components';
+export { GeoLocationWidget };
 
-const applyConfig = config => {
+export default config => {
   config.widgets.id = {
     ...config.widgets.id,
     geolocation: GeoLocationWidget,
@@ -8,5 +9,3 @@ const applyConfig = config => {
 
   return config;
 };
-
-export default applyConfig;
