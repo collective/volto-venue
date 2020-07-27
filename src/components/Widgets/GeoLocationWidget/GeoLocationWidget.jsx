@@ -4,7 +4,7 @@ import { Button, Grid, Form } from 'semantic-ui-react';
 import { debounce } from 'lodash';
 import { settings } from '~/config';
 
-import { OSMMap } from 'volto-venue/components';
+import { OSMMap } from '../../../';
 
 import './GeoLocationWidget.css';
 
@@ -147,10 +147,10 @@ const GeoLocationWidget = ({
               <div className="geolocation-selected-wrapper">
                 <span className="geolocation-selected">
                   <small>
-                    {`${intl.formatMessage(messages.geolocationSelected)} 
-                    ${intl.formatMessage(messages.latitude)}: 
-                    ${geolocation.latitude.toFixed(5)}, 
-                    ${intl.formatMessage(messages.longitude)}: 
+                    {`${intl.formatMessage(messages.geolocationSelected)}
+                    ${intl.formatMessage(messages.latitude)}:
+                    ${geolocation.latitude.toFixed(5)},
+                    ${intl.formatMessage(messages.longitude)}:
                     ${geolocation.longitude.toFixed(5)}`}
                   </small>
                 </span>
