@@ -21,3 +21,21 @@ config.widgets.id = {
 ### Screenshot
 
 ![screenshot volto-venue](docs/screenshot.png)
+
+
+### GeolocationWidget
+
+This widget allows to compile a form with an address data, or use the map to select a point using coordinates.
+
+
+### OSMMap
+
+This component shows a map from OpenStreetMap.
+Accepts these props:
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| position | Array<number> | | Coordinates: [lat, lng] | 
+| zoom | number | `15` | Map zoom | 
+| onMarkerDragEnd | func | `() => {}`Callback to handle marker position change on the map | 
+| draggable | boolean | false | Enables dragging the marker on the map | 
