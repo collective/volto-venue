@@ -33,9 +33,11 @@ This widget allows to compile a form with an address data, or use the map to sel
 This component shows a map from OpenStreetMap.
 Accepts these props:
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| position | Array<number> | | Coordinates: [lat, lng] | 
-| zoom | number | `15` | Map zoom | 
-| onMarkerDragEnd | func | `() => {}`Callback to handle marker position change on the map | 
-| draggable | boolean | false | Enables dragging the marker on the map | 
+| Prop            | Type    | Default    | Description                                                                                  |
+| --------------- | ------- | ---------- | -------------------------------------------------------------------------------------------- |
+| center          | object  | markers[0] | Object containing `latitude` and `longitude`                                                 |
+| markers         | object  | `[]`       | Array of objects with the structure: `{ latitude: number, latitude: number, title: string }` |
+| zoom            | number  | `15`       | Map zoom                                                                                     |
+| onMarkerDragEnd | func    | `() => {}` | Callback to handle marker position change on the map                                         |
+| draggable       | boolean | false      | Enables dragging the marker on the map                                                       |
+| showTooltip     | boolean | false      | Shows a tooltip with the title on the marker                                                 |
