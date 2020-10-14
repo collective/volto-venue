@@ -139,7 +139,12 @@ const GeoLocationWidget = ({
               </Button>
               {__CLIENT__ && (
                 <OSMMap
-                  position={[geolocation.latitude, geolocation.longitude]}
+                  markers={[
+                    {
+                      latitude: geolocation.latitude,
+                      longitude: geolocation.longitude,
+                    },
+                  ]}
                   onMarkerDragEnd={onDragend}
                   draggable
                 />
