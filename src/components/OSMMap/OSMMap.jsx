@@ -22,13 +22,13 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const OSMMap = ({
   center,
   markers = [],
-  onMarkerDragEnd = () => {},
   draggable = false,
+  onMarkerDragEnd = () => {},
   zoom = 15,
   showTooltip = false,
 }) => {
   const bounds = L.latLngBounds(
-    markers.map(marker => [marker.latitude, marker.longitude]),
+    markers.map((marker) => [marker.latitude, marker.longitude]),
   );
 
   return (
@@ -57,6 +57,7 @@ const OSMMap = ({
             position={[position.latitude, position.longitude]}
             draggable={draggable}
             onDragend={onMarkerDragEnd}
+            onClick={position.onMarkerClick}
           >
             {showTooltip && position.title && (
               <Tooltip offset={[0, -22]} direction="top">
