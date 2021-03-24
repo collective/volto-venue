@@ -10,7 +10,11 @@
     "release-it": "*"
   },
   "scripts": {
+    "i18n": "NODE_ENV=production node src/i18n.js",
     "release": "release-it"
+  },
+  "peerDependencies": {
+    "@plone/volto": ">=12.0.0"
   },
   "dependencies": {
     "leaflet": "1.6.0",

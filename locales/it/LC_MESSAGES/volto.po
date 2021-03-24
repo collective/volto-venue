@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "geolocation"
+msgstr "Geolocalizzazione"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "geolocationClear"
+msgstr "Cancella"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "geolocation_placeholder"
+msgstr "Cerca un luogo..."
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "geolocation_selected"
+msgstr "Selezionato"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "latitude"
+msgstr "Latitudine"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "longitude"
+msgstr "Longitudine"
+
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
+msgid "searchOnMap"
+msgstr "Cerca sulla mappa"

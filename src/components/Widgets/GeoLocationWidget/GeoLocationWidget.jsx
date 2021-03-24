@@ -2,9 +2,8 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Button, Grid, Form } from 'semantic-ui-react';
 import { debounce } from 'lodash';
-import { settings } from '~/config';
-
 import { OSMMap } from '../../../';
+import config from '@plone/volto/registry';
 
 import './GeoLocationWidget.css';
 
@@ -65,9 +64,9 @@ const GeoLocationWidget = ({
    * CAMBIARE DA QUELLO DEI SETTINGS? COME LO PRENDIAMO?
    */
   const [geolocation, setGeolocation] = useState({
-    latitude: value?.latitude ?? settings?.defaultVenueLocation?.latitude ?? 0,
+    latitude: value?.latitude ?? config.settings.defaultVenueLocation?.latitude ?? 0,
     longitude:
-      value?.longitude ?? settings?.defaultVenueLocation?.longitude ?? 0,
+      value?.longitude ?? config.settings.defaultVenueLocation?.longitude ?? 0,
   });
 
   const doSearch = async () => {
