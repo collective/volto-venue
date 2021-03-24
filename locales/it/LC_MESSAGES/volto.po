@@ -11,30 +11,30 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
- #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "geolocation"
-msgstr ""
+msgstr "Geolocalizzazione"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "geolocationClear"
-msgstr ""
+msgstr "Cancella"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "geolocation_placeholder"
-msgstr ""
+msgstr "Cerca un luogo..."
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "geolocation_selected"
-msgstr ""
+msgstr "Selezionato"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "latitude"
-msgstr ""
+msgstr "Latitudine"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "longitude"
-msgstr ""
+msgstr "Longitudine"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 msgid "searchOnMap"
-msgstr ""
+msgstr "Cerca sulla mappa"

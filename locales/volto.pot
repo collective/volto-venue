@@ -1,7 +1,7 @@
 msgid ""
  msgstr ""
  "Project-Id-Version: Plone\n"
- "POT-Creation-Date: 2021-03-24T16:57:30.847Z\n"
+ "POT-Creation-Date: 2021-03-24T19:20:44.897Z\n"
  "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
  "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgid ""
  "Preferred-Encodings: utf-8\n"
  "Domain: volto\n"
 
- #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+#: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Geolocation
 msgid "geolocation"
 msgstr ""
