@@ -37,7 +37,7 @@ Accepts these props:
 
 | Prop            | Type    | Default    | Description                                                                                  |
 | --------------- | ------- | ---------- | -------------------------------------------------------------------------------------------- |
-| center          | object  | markers[0] | Object containing `latitude` and `longitude`                                                 |
+| center          | array   | markers[0] | Array containing `latitude` as the first element and `longitude` as the second one           |
 | markers         | object  | `[]`       | Array of objects with the structure: `{ latitude: number, latitude: number, title: string }` |
 | zoom            | number  | `15`       | Map zoom                                                                                     |
 | onMarkerDragEnd | func    | `() => {}` | Callback to handle marker position change on the map                                         |
