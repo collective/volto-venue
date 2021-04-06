@@ -72,10 +72,7 @@ const OSMMap = ({
 };
 
 OSMMap.propTypes = {
-  center: PropTypes.shape({
-    latitude: PropTypes.number,
-    longitude: PropTypes.number,
-  }),
+  center: PropTypes.arrayOf(PropTypes.number),
   markers: PropTypes.arrayOf(
     PropTypes.shape({
       latitude: PropTypes.number,
