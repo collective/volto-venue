@@ -59,7 +59,7 @@ const OSMMap = ({
             draggable={draggable}
             onDragend={onMarkerDragEnd}
             onClick={position.onMarkerClick}
-            icon={position.icon ?? DefaultIcon}
+            icon={position.divIcon ? L.divIcon(position.divIcon) : DefaultIcon}
           >
             {showTooltip && position.title && (
               <Tooltip offset={[0, -22]} direction="top">
