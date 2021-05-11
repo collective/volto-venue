@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
-import { Map, TileLayer, Marker, Tooltip } from 'react-leaflet';
+import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
 import { Helmet } from '@plone/volto/helpers';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -26,6 +26,7 @@ const OSMMap = ({
   onMarkerDragEnd = () => {},
   zoom = 15,
   showTooltip = false,
+  showPopup = false,
 }) => {
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
@@ -58,11 +59,17 @@ const OSMMap = ({
             draggable={draggable}
             onDragend={onMarkerDragEnd}
             onClick={position.onMarkerClick}
+            icon={position.icon ?? DefaultIcon}
           >
             {showTooltip && position.title && (
               <Tooltip offset={[0, -22]} direction="top">
                 {position.title}
               </Tooltip>
+            )}
+            {showPopup && position.popupContent && (
+              <Popup offset={[0, -22]} direction="top">
+                {position.popupContent}
+              </Popup>
             )}
           </Marker>
         ))}
