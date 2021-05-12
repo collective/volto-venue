@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { Helmet } from '@plone/volto/helpers';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -27,11 +28,38 @@ const OSMMap = ({
   zoom = 15,
   showTooltip = false,
   showPopup = false,
+  cluster = false,
+  clusterOptions = {},
 }) => {
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
   );
 
+  const renderMarkers = (
+    <>
+      {markers.map((position, i) => (
+        <Marker
+          key={`${position.latitude}${position.longitude}${i}`}
+          position={[position.latitude, position.longitude]}
+          draggable={draggable}
+          onDragend={onMarkerDragEnd}
+          onClick={position.onMarkerClick}
+          icon={position.divIcon ? L.divIcon(position.divIcon) : DefaultIcon}
+        >
+          {showTooltip && position.title && (
+            <Tooltip offset={[0, -22]} direction="top">
+              {position.title}
+            </Tooltip>
+          )}
+          {showPopup && position.popupContent && (
+            <Popup offset={[0, -22]} direction="top">
+              {position.popupContent}
+            </Popup>
+          )}
+        </Marker>
+      ))}
+    </>
+  );
   return (
     <React.Fragment>
       <Helmet>
@@ -42,6 +70,7 @@ const OSMMap = ({
           crossOrigin=""
         />
       </Helmet>
+
       <Map
         center={center ?? [markers[0].latitude, markers[0].longitude]}
         zoom={zoom}
@@ -52,27 +81,13 @@ const OSMMap = ({
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {markers.map((position, i) => (
-          <Marker
-            key={`${position.latitude}${position.longitude}${i}`}
-            position={[position.latitude, position.longitude]}
-            draggable={draggable}
-            onDragend={onMarkerDragEnd}
-            onClick={position.onMarkerClick}
-            icon={position.divIcon ? L.divIcon(position.divIcon) : DefaultIcon}
-          >
-            {showTooltip && position.title && (
-              <Tooltip offset={[0, -22]} direction="top">
-                {position.title}
-              </Tooltip>
-            )}
-            {showPopup && position.popupContent && (
-              <Popup offset={[0, -22]} direction="top">
-                {position.popupContent}
-              </Popup>
-            )}
-          </Marker>
-        ))}
+        {cluster ? (
+          <MarkerClusterGroup {...clusterOptions}>
+            {renderMarkers}
+          </MarkerClusterGroup>
+        ) : (
+          renderMarkers
+        )}
       </Map>
     </React.Fragment>
   );
