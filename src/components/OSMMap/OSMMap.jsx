@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
+import MarkerClusterGroup from './MarkerClusterGroup';
 import { Helmet } from '@plone/volto/helpers';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -82,9 +82,7 @@ const OSMMap = ({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {cluster ? (
-          <MarkerClusterGroup {...clusterOptions}>
-            {renderMarkers}
-          </MarkerClusterGroup>
+          <MarkerClusterGroup>{renderMarkers}</MarkerClusterGroup>
         ) : (
           renderMarkers
         )}
