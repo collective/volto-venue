@@ -1,3 +1,10 @@
+### [3.1.1](https://github.com/collective/volto-venue/compare/v3.1.0...v3.1.1) (2021-05-13)
+
+
+### Maintenance
+
+* add release-it config, commitlint ([c5931c9](https://github.com/collective/volto-venue/commit/c5931c98cc13c4b6c24d681e24a4d99d36ed3fe4))
+
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
