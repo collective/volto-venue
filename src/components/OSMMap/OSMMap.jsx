@@ -29,7 +29,6 @@ const OSMMap = ({
   showTooltip = false,
   showPopup = false,
   cluster = false,
-  clusterOptions = {},
 }) => {
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
