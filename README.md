@@ -43,3 +43,7 @@ Accepts these props:
 | onMarkerDragEnd | func    | `() => {}` | Callback to handle marker position change on the map                                         |
 | draggable       | boolean | false      | Enables dragging the marker on the map                                                       |
 | showTooltip     | boolean | false      | Shows a tooltip with the title on the marker                                                 |
+| showPopup       | boolean | false      | Shows a popup on marker click. Content of popup will be passed in marker object in popupContent prop. |
+| cluster         | boolean | false      | To show clusters on map if you have a lot of points.                                         |
+
+
