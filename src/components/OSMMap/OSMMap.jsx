@@ -59,6 +59,7 @@ const OSMMap = ({
       ))}
     </>
   );
+  
   return (
     <React.Fragment>
       <Helmet>
