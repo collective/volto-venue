@@ -29,3 +29,24 @@
 #geocoded-result {
   height: 300px;
 }
+
+.marker-cluster {
+  background-color: #ff8d00;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 0px 8px 2px #ff8d00;
+  box-shadow: 0px 0px 8px 2px #ff8d00;
+}
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.marker-cluster span {
+  line-height: 30px;
+}
