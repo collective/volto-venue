@@ -1,3 +1,10 @@
+### [3.1.2](https://github.com/collective/volto-venue/compare/v3.1.1...v3.1.2) (2021-10-26)
+
+
+### Maintenance
+
+* updated to volto 14 ([5cd308f](https://github.com/collective/volto-venue/commit/5cd308f3fb8137cce81177247196068e491ebf89))
+
 ### [3.1.1](https://github.com/collective/volto-venue/compare/v3.1.0...v3.1.1) (2021-05-13)
 
 
