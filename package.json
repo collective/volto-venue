@@ -14,7 +14,7 @@
     "release-it": "*"
   },
   "scripts": {
-    "i18n": "NODE_ENV=production node src/i18n.js",
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
     "release": "release-it"
   },
   "husky": {
@@ -24,11 +24,12 @@
     }
   },
   "peerDependencies": {
-    "@plone/volto": ">=12.0.0"
+    "@plone/volto": ">=14.0.0"
   },
   "dependencies": {
     "leaflet": "1.6.0",
     "leaflet.markercluster": "1.5.0",
-    "react-leaflet": "2.7.0"
+    "react-leaflet": "2.7.0",
+    "@plone/scripts": "*"
   }
 }

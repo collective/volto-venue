@@ -12,29 +12,36 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Geolocation
 msgid "geolocation"
 msgstr "Geolocalizzazione"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Clear
 msgid "geolocationClear"
 msgstr "Cancella"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Search a venue...
 msgid "geolocation_placeholder"
 msgstr "Cerca un luogo..."
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Selected
 msgid "geolocation_selected"
 msgstr "Selezionato"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Latitude
 msgid "latitude"
 msgstr "Latitudine"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Longitude
 msgid "longitude"
 msgstr "Longitudine"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
+# defaultMessage: Search address on map
 msgid "searchOnMap"
 msgstr "Cerca sulla mappa"
