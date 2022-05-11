@@ -29,6 +29,7 @@ const OSMMap = ({
   showTooltip = false,
   showPopup = false,
   cluster = false,
+  mapOptions = {},
 }) => {
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
@@ -59,7 +60,7 @@ const OSMMap = ({
       ))}
     </>
   );
-  
+
   return (
     <React.Fragment>
       <Helmet>
@@ -76,6 +77,7 @@ const OSMMap = ({
         zoom={zoom}
         id="geocoded-result"
         bounds={bounds}
+        {...mapOptions}
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -103,6 +105,7 @@ OSMMap.propTypes = {
   onMarkerDragEnd: PropTypes.func,
   draggable: PropTypes.bool,
   showTooltip: PropTypes.bool,
+  mapOptions: PropTypes.object,
 };
 
 export default React.memo(OSMMap);
