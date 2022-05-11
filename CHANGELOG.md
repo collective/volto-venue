@@ -1,3 +1,10 @@
+## [3.2.0](https://github.com/collective/volto-venue/compare/v3.1.2...v3.2.0) (2022-05-11)
+
+
+### Features
+
+* added mapOptions prop ([596cfba](https://github.com/collective/volto-venue/commit/596cfbaec2645298ef9db19d57f2536e2ada8a73))
+
 ### [3.1.2](https://github.com/collective/volto-venue/compare/v3.1.1...v3.1.2) (2021-10-26)
 
 
