@@ -8,6 +8,8 @@ To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/custom
 ## Usage
 
 > If you're using Volto < 12, then use [v2.0.1](https://github.com/collective/volto-venue/tree/v2.0.1)
+>
+> If you're using Volto < 16, then use [v3.2.0](https://github.com/collective/volto-venue/tree/v3.2.0)
 
 You can use this in combination with `collective.venue` and it will work out of the box, otherwise you can define a field called `geolocation` or add the geolocation widget on a custom field.
 
