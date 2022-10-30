@@ -1,3 +1,16 @@
+## [4.0.0](https://github.com/collective/volto-venue/compare/v3.2.0...v4.0.0) (2022-10-30)
+
+
+### Bug Fixes
+
+* downgrade release-it ([f09959a](https://github.com/collective/volto-venue/commit/f09959a89a7386466ae111d9ff42ef178900deda))
+* generated lockfile ([9cb6324](https://github.com/collective/volto-venue/commit/9cb63248988ad39df16edc4905dd9c02a8b4b280))
+
+
+### Changes
+
+* upgraded dependencies and babel config for volto 16 ([#12](https://github.com/collective/volto-venue/issues/12)) ([fd8d3d3](https://github.com/collective/volto-venue/commit/fd8d3d3e5341dcb6f36af41954ec67d27c61d68c))
+
 ## [3.2.0](https://github.com/collective/volto-venue/compare/v3.1.2...v3.2.0) (2022-05-11)
 
 
