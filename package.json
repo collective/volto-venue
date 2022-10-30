@@ -9,6 +9,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@plone/scripts": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.1",
     "husky": "^6.0.0",
     "release-it": "*"
@@ -24,12 +25,11 @@
     }
   },
   "peerDependencies": {
-    "@plone/volto": ">=14.0.0"
+    "@plone/volto": ">=16.0.0-alpha.38"
   },
   "dependencies": {
     "leaflet": "1.6.0",
     "leaflet.markercluster": "1.5.0",
-    "react-leaflet": "2.7.0",
-    "@plone/scripts": "*"
+    "react-leaflet": "2.7.0"
   }
 }
