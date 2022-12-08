@@ -1,3 +1,10 @@
+### [4.0.1](https://github.com/collective/volto-venue/compare/v4.0.0...v4.0.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* incorporated local leaflet css and updated imports ([#13](https://github.com/collective/volto-venue/issues/13)) ([17db48d](https://github.com/collective/volto-venue/commit/17db48dd509799445b6a547f329b0ac07d97965b))
+
 ## [4.0.0](https://github.com/collective/volto-venue/compare/v3.2.0...v4.0.0) (2022-10-30)
 
 
