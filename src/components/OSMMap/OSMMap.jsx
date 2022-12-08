@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
 import MarkerClusterGroup from './MarkerClusterGroup';
-import { Helmet } from '@plone/volto/helpers';
 
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+// eslint-disable-next-line import/no-unresolved
+import icon from 'volto-venue/components/OSMMap/images/marker-icon.png';
+// eslint-disable-next-line import/no-unresolved
+import iconShadow from 'volto-venue/components/OSMMap/images/marker-shadow.png';
 
-import './OSMMap.css';
+/* Styles */
+import 'volto-venue/components/OSMMap/OSMMap.css';
+// eslint-disable-next-line import/no-unresolved
+import 'volto-venue/components/OSMMap/leaflet.css';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -63,15 +67,6 @@ const OSMMap = ({
 
   return (
     <React.Fragment>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossOrigin=""
-        />
-      </Helmet>
-
       <Map
         center={center ?? [markers[0].latitude, markers[0].longitude]}
         zoom={zoom}
