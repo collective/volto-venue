@@ -1,9 +1,9 @@
-import { GeoLocationWidget } from './components';
+import { GeoLocationWidget } from 'volto-venue/components';
 
-export { OSMMap } from './components';
+export { OSMMap } from 'volto-venue/components';
 export { GeoLocationWidget };
 
-export default config => {
+export default (config) => {
   config.widgets.id = {
     ...config.widgets.id,
     geolocation: GeoLocationWidget,

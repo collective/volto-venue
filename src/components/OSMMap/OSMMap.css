@@ -5,9 +5,9 @@
 }
 
 .suggestions-wrapper ul {
-  list-style: none;
   padding: 10px 0;
   margin: 0;
+  list-style: none;
 }
 
 .suggestions-wrapper ul li {
@@ -19,11 +19,11 @@
 }
 
 .suggestions-wrapper ul li button {
-  cursor: pointer;
-  background: none;
-  border: 0;
   width: 100%;
   padding: 10px;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }
 
 #geocoded-result {
@@ -40,11 +40,11 @@
 .marker-cluster div {
   width: 30px;
   height: 30px;
-  margin-left: 5px;
   margin-top: 5px;
-  text-align: center;
+  margin-left: 5px;
   border-radius: 15px;
   font-size: 12px;
+  text-align: center;
 }
 
 .marker-cluster span {

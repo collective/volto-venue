@@ -2,10 +2,10 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Button, Grid, Form } from 'semantic-ui-react';
 import { debounce } from 'lodash';
-import { OSMMap } from '../../../';
+import { OSMMap } from 'volto-venue/components/OSMMap/OSMMap';
 import config from '@plone/volto/registry';
 
-import './GeoLocationWidget.css';
+import 'volto-venue/components/Widgets/GeoLocationWidget/GeoLocationWidget.css';
 
 const messages = defineMessages({
   geolocation: {
@@ -64,7 +64,8 @@ const GeoLocationWidget = ({
    * CAMBIARE DA QUELLO DEI SETTINGS? COME LO PRENDIAMO?
    */
   const [geolocation, setGeolocation] = useState({
-    latitude: value?.latitude ?? config.settings.defaultVenueLocation?.latitude ?? 0,
+    latitude:
+      value?.latitude ?? config.settings.defaultVenueLocation?.latitude ?? 0,
     longitude:
       value?.longitude ?? config.settings.defaultVenueLocation?.longitude ?? 0,
   });
