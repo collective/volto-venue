@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Button, Grid, Form } from 'semantic-ui-react';
 import { debounce } from 'lodash';
-import { OSMMap } from 'volto-venue/components/OSMMap/OSMMap';
+import { OSMMap } from 'volto-venue';
 import config from '@plone/volto/registry';
 
 import 'volto-venue/components/Widgets/GeoLocationWidget/GeoLocationWidget.css';
