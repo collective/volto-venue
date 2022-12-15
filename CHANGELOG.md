@@ -1,3 +1,10 @@
+### [4.0.2](https://github.com/collective/volto-venue/compare/v4.0.1...v4.0.2) (2022-12-15)
+
+
+### Bug Fixes
+
+* fixed imports OSMAP components ([ed8f3bd](https://github.com/collective/volto-venue/commit/ed8f3bd9f5c41103864112af65543f951fb4191b))
+
 ### [4.0.1](https://github.com/collective/volto-venue/compare/v4.0.0...v4.0.1) (2022-12-08)
 
 
