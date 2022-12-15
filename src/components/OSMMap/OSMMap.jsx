@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
-import MarkerClusterGroup from './MarkerClusterGroup';
+import MarkerClusterGroup from 'volto-venue/components/OSMMap/MarkerClusterGroup';
 
 // eslint-disable-next-line import/no-unresolved
 import icon from 'volto-venue/components/OSMMap/images/marker-icon.png';
