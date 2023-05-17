@@ -1,4 +1,5 @@
 import React from 'react';
+import { defineMessages } from 'react-intl';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
@@ -13,6 +14,13 @@ import iconShadow from 'volto-venue/components/OSMMap/images/marker-shadow.png';
 import 'volto-venue/components/OSMMap/OSMMap.css';
 // eslint-disable-next-line import/no-unresolved
 import 'volto-venue/components/OSMMap/leaflet.css';
+
+const messages = defineMessages({
+  attribution: {
+    id: '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    defaultMessage: '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+  },
+});
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -75,7 +83,7 @@ const OSMMap = ({
         {...mapOptions}
       >
         <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution={intl.formatMessage(messages.attribution)}
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {cluster ? (
