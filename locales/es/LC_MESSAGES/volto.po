@@ -1,47 +1,56 @@
+# Translation of volto-venue.pot to Spanish
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: volto-venue\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language: \n"
-"Language-Team: \n"
-"Content-Type: \n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"POT-Creation-Date: 2023-05-09 11:45-0400\n"
+"PO-Revision-Date: 2023-05-12 10:32-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language: es\n"
+"Language-Team: ES <LL@li.org>\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Preferred-Encodings: utf-8\n"
+"MIME-Version: 1.0\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Domain: volto-venue\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Geolocation
 msgid "geolocation"
-msgstr ""
+msgstr "Geolocalización"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Clear
 msgid "geolocationClear"
-msgstr ""
+msgstr "Limpiar"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Search a venue...
 msgid "geolocation_placeholder"
-msgstr ""
+msgstr "Buscar un lugar..."
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Selected
 msgid "geolocation_selected"
-msgstr ""
+msgstr "Seleccionado"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Latitude
 msgid "latitude"
-msgstr ""
+msgstr "Latitud"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Longitude
 msgid "longitude"
-msgstr ""
+msgstr "Longitud"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Search address on map
 msgid "searchOnMap"
-msgstr ""
+msgstr "Buscar dirección en el mapa"
