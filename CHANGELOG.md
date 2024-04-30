@@ -1,3 +1,18 @@
+## [4.1.0](https://github.com/collective/volto-venue/compare/v4.0.2...v4.1.0) (2024-04-30)
+
+
+### Features
+
+* added aria tags for SR accessibility ([9244f44](https://github.com/collective/volto-venue/commit/9244f4474c713b1f32d4ca99eb3d4373ab017e90))
+* Added Spanish support ([30f76bf](https://github.com/collective/volto-venue/commit/30f76bf7da35a50869420c02a66bbfc571195851))
+* configure osmmap to be used as view widget for geolocation in default view ([387da60](https://github.com/collective/volto-venue/commit/387da60ce074169efa25268d073e1c4627068bde))
+
+
+### Maintenance
+
+* cleanup ([35ce813](https://github.com/collective/volto-venue/commit/35ce813d71789dbf9858d4c4c1d7504f85a3010c))
+* use yarn v3 ([f7dd047](https://github.com/collective/volto-venue/commit/f7dd04719d8ee2324bb65f2383823cb0cd144b9c))
+
 ### [4.0.2](https://github.com/collective/volto-venue/compare/v4.0.1...v4.0.2) (2022-12-15)
 
 
