@@ -30,6 +30,10 @@
   height: 300px;
 }
 
+.view-defaultview .ui.basic.segment:has(#geocoded-result) {
+  width: 100%;
+}
+
 .marker-cluster {
   background-color: #ff8d00;
   border-radius: 100%;
