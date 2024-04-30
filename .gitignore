@@ -4,13 +4,30 @@ logs
 *.log
 npm-debug.log*
 .DS_Store
-*.swp
-yarn-error.log
+src/addons
+/project/
+/addon-testing-project/
 
+coverage
 node_modules
 build
-dist
+cache
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+data
+omelette
+var
+
+locales/*.json
+
+# Yarn 3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
