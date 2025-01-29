@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
+import { defineMessages, useIntl } from 'react-intl';
 import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'volto-venue/components/OSMMap/MarkerClusterGroup';
 
@@ -13,6 +14,14 @@ import iconShadow from 'volto-venue/components/OSMMap/images/marker-shadow.png';
 import 'volto-venue/components/OSMMap/OSMMap.css';
 // eslint-disable-next-line import/no-unresolved
 import 'volto-venue/components/OSMMap/leaflet.css';
+
+const messages = defineMessages({
+  attribution: {
+    id: 'osmmap copyright contributors',
+    defaultMessage:
+      '<span class="attribution"><a href="http://osm.org/copyright">OpenStreetMap</a> &copy; contributors</span>',
+  },
+});
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -35,6 +44,7 @@ const OSMMap = ({
   cluster = false,
   mapOptions = {},
 }) => {
+  const intl = useIntl();
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
   );
@@ -88,7 +98,10 @@ const OSMMap = ({
         bounds={bounds}
         {...mapOptions}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={intl.formatMessage(messages.attribution)}
+        />
         {cluster ? (
           <MarkerClusterGroup>{renderMarkers}</MarkerClusterGroup>
         ) : (
