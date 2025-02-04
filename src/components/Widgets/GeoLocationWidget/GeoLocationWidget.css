@@ -62,3 +62,8 @@
 .geolocation-widget .geolocation-selected-wrapper button.ui.button {
   padding: 0.6rem;
 }
+
+.geolocation-widget .leaflet-control-zoom a,
+.geolocation-widget .leaflet-control-zoom a:hover {
+  text-decoration: none;
+}

@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
-import { Map, TileLayer, Marker, Tooltip, Popup } from 'react-leaflet';
+import { defineMessages, useIntl } from 'react-intl';
+import {
+  Map,
+  TileLayer,
+  Marker,
+  Tooltip,
+  Popup,
+  ZoomControl,
+} from 'react-leaflet';
 import MarkerClusterGroup from 'volto-venue/components/OSMMap/MarkerClusterGroup';
 
 // eslint-disable-next-line import/no-unresolved
@@ -13,6 +21,26 @@ import iconShadow from 'volto-venue/components/OSMMap/images/marker-shadow.png';
 import 'volto-venue/components/OSMMap/OSMMap.css';
 // eslint-disable-next-line import/no-unresolved
 import 'volto-venue/components/OSMMap/leaflet.css';
+
+const messages = defineMessages({
+  attribution: {
+    id: 'osmmap copyright contributors',
+    defaultMessage:
+      '<span class="attribution"><a href="http://osm.org/copyright">OpenStreetMap</a> &copy; contributors</span>',
+  },
+  pinClick: {
+    id: 'osmmap - pin click',
+    defaultMessage: 'Click to view details',
+  },
+  zoomIn: {
+    id: 'osmmap - zoom in',
+    defaultMessage: 'Zoom in',
+  },
+  zoomOut: {
+    id: 'osmmap - zoom out',
+    defaultMessage: 'Zoom out',
+  },
+});
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -35,6 +63,7 @@ const OSMMap = ({
   cluster = false,
   mapOptions = {},
 }) => {
+  const intl = useIntl();
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
   );
@@ -54,7 +83,7 @@ const OSMMap = ({
             }
           }}
           icon={position.divIcon ? L.divIcon(position.divIcon) : DefaultIcon}
-          aria-label={position.title}
+          alt={position.title + ' - ' + intl.formatMessage(messages.pinClick)}
         >
           {showTooltip && position.title && (
             <Tooltip
@@ -84,11 +113,20 @@ const OSMMap = ({
       <Map
         center={center ?? [markers[0].latitude, markers[0].longitude]}
         zoom={zoom}
+        zoomControl={false}
         id="geocoded-result"
         bounds={bounds}
         {...mapOptions}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <ZoomControl
+          position="topleft"
+          zoomInTitle={intl.formatMessage(messages.zoomIn)}
+          zoomOutTitle={intl.formatMessage(messages.zoomOut)}
+        />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={intl.formatMessage(messages.attribution)}
+        />
         {cluster ? (
           <MarkerClusterGroup>{renderMarkers}</MarkerClusterGroup>
         ) : (

@@ -20,11 +20,6 @@ msgstr ""
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: components/OSMMap/OSMMap
-# defaultMessage: &amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors
-msgid "&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors"
-msgstr "&amp;copy los contribuyentes de <a href=\"http://osm.org/copyright\">OpenStreetMap</a>"
-
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Geolocation
 msgid "geolocation"
@@ -54,6 +49,26 @@ msgstr "Latitud"
 # defaultMessage: Longitude
 msgid "longitude"
 msgstr "Longitud"
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Click to view details
+msgid "osmmap - pin click"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Zoom in
+msgid "osmmap - zoom in"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Zoom out
+msgid "osmmap - zoom out"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: <span class="attribution"><a href="http://osm.org/copyright">OpenStreetMap</a> &copy; contributors</span>
+msgid "osmmap copyright contributors"
+msgstr ""
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Search address on map
