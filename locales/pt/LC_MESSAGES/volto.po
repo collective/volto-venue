@@ -11,11 +11,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#: components/OSMMap/OSMMap
-# defaultMessage: &amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors
-msgid "&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors"
-msgstr ""
-
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Geolocation
 msgid "geolocation"
@@ -44,6 +39,26 @@ msgstr ""
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Longitude
 msgid "longitude"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Click to view details
+msgid "osmmap - pin click"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Zoom in
+msgid "osmmap - zoom in"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: Zoom out
+msgid "osmmap - zoom out"
+msgstr ""
+
+#: components/OSMMap/OSMMap
+# defaultMessage: <span class="attribution"><a href="http://osm.org/copyright">OpenStreetMap</a> &copy; contributors</span>
+msgid "osmmap copyright contributors"
 msgstr ""
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
