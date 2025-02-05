@@ -1,3 +1,10 @@
+### [4.1.1](https://github.com/collective/volto-venue/compare/v4.1.0...v4.1.1) (2025-02-05)
+
+
+### Bug Fixes
+
+* restore copyright of OSM ([#16](https://github.com/collective/volto-venue/issues/16)) ([0027648](https://github.com/collective/volto-venue/commit/002764845747ae03c0101342dd8ba8f7c674ca76))
+
 ## [4.1.0](https://github.com/collective/volto-venue/compare/v4.0.2...v4.1.0) (2024-04-30)
 
 
