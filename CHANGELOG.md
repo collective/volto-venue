@@ -1,3 +1,10 @@
+### [4.1.2](https://github.com/collective/volto-venue/compare/v4.1.1...v4.1.2) (2025-08-27)
+
+
+### Maintenance
+
+* updated keydown event with argument ([d60d0d6](https://github.com/collective/volto-venue/commit/d60d0d63a7e2f0c75a8c7ca55e1b6e6932e3a21e))
+
 ### [4.1.1](https://github.com/collective/volto-venue/compare/v4.1.0...v4.1.1) (2025-02-05)
 
 
