@@ -65,7 +65,7 @@ const OSMMap = ({
 }) => {
   const intl = useIntl();
   const bounds = L.latLngBounds(
-    markers.map((marker) => [marker.latitude, marker.longitude])
+    markers.map((marker) => [marker.latitude, marker.longitude]),
   );
 
   const renderMarkers = (
@@ -143,7 +143,7 @@ OSMMap.propTypes = {
     PropTypes.shape({
       latitude: PropTypes.number,
       longitude: PropTypes.number,
-    })
+    }),
   ),
   zoom: PropTypes.number,
   onMarkerDragEnd: PropTypes.func,
