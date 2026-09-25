@@ -42,6 +42,11 @@ msgid "longitude"
 msgstr ""
 
 #: components/OSMMap/OSMMap
+# defaultMessage: Map
+msgid "osmmap - map label"
+msgstr ""
+
+#: components/OSMMap/OSMMap
 # defaultMessage: Click to view details
 msgid "osmmap - pin click"
 msgstr ""
