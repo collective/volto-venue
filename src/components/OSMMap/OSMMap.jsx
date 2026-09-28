@@ -119,7 +119,7 @@ const OSMMap = ({
       'aria-label',
       ariaLabel || intl.formatMessage(messages.mapLabel),
     );
-  }, [role, ariaLabel, intl]);
+  }, [role, ariaLabel, intl, mapRef]);
 
   const renderMarkers = (
     <>
