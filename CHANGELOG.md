@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/collective/volto-venue/compare/v4.1.2...v4.2.0) (2026-09-28)
+
+
+### Features
+
+* named region role on the map container and button role on actionable markers ([#18](https://github.com/collective/volto-venue/issues/18)) ([5142c0b](https://github.com/collective/volto-venue/commit/5142c0b483ea6d6b931711ad5c0226b5a22cf136))
+
 ### [4.1.2](https://github.com/collective/volto-venue/compare/v4.1.1...v4.1.2) (2025-08-27)
 
 
