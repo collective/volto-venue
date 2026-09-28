@@ -7,12 +7,12 @@ msgstr ""
 "POT-Creation-Date: 2023-05-09 11:45-0400\n"
 "PO-Revision-Date: 2025-07-16 14:44+0200\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: ES <LL@li.org>\n"
 "Language: es\n"
-"MIME-Version: 1.0\n"
+"Language-Team: ES <LL@li.org>\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
 "Language-Code: es\n"
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
@@ -51,6 +51,11 @@ msgid "longitude"
 msgstr "Longitud"
 
 #: components/OSMMap/OSMMap
+# defaultMessage: Map
+msgid "osmmap - map label"
+msgstr ""
+
+#: components/OSMMap/OSMMap
 # defaultMessage: Click to view details
 msgid "osmmap - pin click"
 msgstr "Haga clic para ver los detalles"
@@ -68,7 +73,7 @@ msgstr "Alejar"
 #: components/OSMMap/OSMMap
 # defaultMessage: <span class="attribution"><a href="http://osm.org/copyright">OpenStreetMap</a> &copy; contributors</span>
 msgid "osmmap copyright contributors"
-msgstr "<span class=\"attribution\">Los colaboradores &copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a>.</span>"
+msgstr "<span class="attribution">Los colaboradores &copy; <a href="http://osm.org/copyright">OpenStreetMap</a>.</span>"
 
 #: components/Widgets/GeoLocationWidget/GeoLocationWidget
 # defaultMessage: Search address on map

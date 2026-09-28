@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import L from 'leaflet';
 import { defineMessages, useIntl } from 'react-intl';
@@ -40,15 +40,50 @@ const messages = defineMessages({
     id: 'osmmap - zoom out',
     defaultMessage: 'Zoom out',
   },
+  mapLabel: {
+    id: 'osmmap - map label',
+    defaultMessage: 'Map',
+  },
 });
 
-let DefaultIcon = L.icon({
+const defaultIconOptions = {
   iconUrl: icon,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
   iconAnchor: [12.5, 20.5],
   shadowAnchor: [12.5, 20.5],
-});
+};
+
+let DefaultIcon = L.icon(defaultIconOptions);
+
+/* a11y: a clickable marker is announced as a plain image, because Leaflet
+   only sets tabindex on it (role="button" arrives with Leaflet 1.9) and the
+   icon options don't accept extra attributes. Adding the role while the icon
+   element is created also covers the markers built later on, on clustering
+   and on zoom. */
+const withButtonRole = (Base) =>
+  Base.extend({
+    createIcon(oldIcon) {
+      const iconElement = Base.prototype.createIcon.call(this, oldIcon);
+      iconElement.setAttribute('role', 'button');
+      return iconElement;
+    },
+  });
+
+const ButtonIcon = withButtonRole(L.Icon);
+const ButtonDivIcon = withButtonRole(L.DivIcon);
+const DefaultButtonIcon = new ButtonIcon(defaultIconOptions);
+
+/* The role is set only where the marker really does something, to avoid
+   announcing a button that can't be activated. */
+const getMarkerIcon = (position, isInteractive) => {
+  if (position.divIcon) {
+    return isInteractive
+      ? new ButtonDivIcon(position.divIcon)
+      : L.divIcon(position.divIcon);
+  }
+  return isInteractive ? DefaultButtonIcon : DefaultIcon;
+};
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -62,55 +97,90 @@ const OSMMap = ({
   showPopup = false,
   cluster = false,
   mapOptions = {},
+  ariaLabel,
+  role = 'region',
 }) => {
   const intl = useIntl();
+  const mapRef = useRef(null);
   const bounds = L.latLngBounds(
     markers.map((marker) => [marker.latitude, marker.longitude]),
   );
 
+  /* a11y: the map container is focusable (Leaflet sets tabindex="0" on it),
+     so it needs a role and an accessible name. They can't be passed as props:
+     react-leaflet only forwards className, id and style to the container,
+     hence they are set on the Leaflet element itself. */
+  useEffect(() => {
+    const container = mapRef.current?.leafletElement?.getContainer();
+    if (!container) return;
+
+    container.setAttribute('role', role);
+    container.setAttribute(
+      'aria-label',
+      ariaLabel || intl.formatMessage(messages.mapLabel),
+    );
+  }, [role, ariaLabel, intl, mapRef]);
+
   const renderMarkers = (
     <>
-      {markers.map((position, i) => (
-        <Marker
-          key={`${position.latitude}${position.longitude}${i}`}
-          position={[position.latitude, position.longitude]}
-          draggable={draggable}
-          onDragend={onMarkerDragEnd}
-          onClick={position.onMarkerClick}
-          onKeyDown={(event) => {
-            if (event.originalEvent.key === 'Enter') {
-              position.onMarkerClick(event);
-            }
-          }}
-          icon={position.divIcon ? L.divIcon(position.divIcon) : DefaultIcon}
-          alt={position.title + ' - ' + intl.formatMessage(messages.pinClick)}
-        >
-          {showTooltip && position.title && (
-            <Tooltip
-              offset={[0, -22]}
-              direction="top"
-              aria-label={position.title}
-            >
-              {position.title}
-            </Tooltip>
-          )}
-          {showPopup && position.popupContent && (
-            <Popup
-              offset={[0, -22]}
-              direction="top"
-              aria-label={position.title}
-            >
-              {position.popupContent}
-            </Popup>
-          )}
-        </Marker>
-      ))}
+      {markers.map((position, i) => {
+        /* A marker is actionable when it has a click handler, but also when it
+           just carries a popup: Leaflet opens that on activation. */
+        const hasPopup = Boolean(showPopup && position.popupContent);
+        const isInteractive =
+          typeof position.onMarkerClick === 'function' || hasPopup;
+
+        return (
+          <Marker
+            key={`${position.latitude}${position.longitude}${i}`}
+            position={[position.latitude, position.longitude]}
+            draggable={draggable}
+            onDragend={onMarkerDragEnd}
+            onClick={position.onMarkerClick}
+            onKeyDown={(event) => {
+              const key = event.originalEvent.key;
+              /* a11y: a button is activated with both Enter and Space.
+                 Leaflet only handles Enter, and Space would scroll the page. */
+              if (key !== 'Enter' && key !== ' ') return;
+              event.originalEvent.preventDefault();
+
+              if (position.onMarkerClick) {
+                position.onMarkerClick(event);
+              } else if (event.target.getPopup?.()) {
+                event.target.openPopup();
+              }
+            }}
+            icon={getMarkerIcon(position, isInteractive)}
+            alt={position.title + ' - ' + intl.formatMessage(messages.pinClick)}
+          >
+            {showTooltip && position.title && (
+              <Tooltip
+                offset={[0, -22]}
+                direction="top"
+                aria-label={position.title}
+              >
+                {position.title}
+              </Tooltip>
+            )}
+            {showPopup && position.popupContent && (
+              <Popup
+                offset={[0, -22]}
+                direction="top"
+                aria-label={position.title}
+              >
+                {position.popupContent}
+              </Popup>
+            )}
+          </Marker>
+        );
+      })}
     </>
   );
 
   return (
     <React.Fragment>
       <Map
+        ref={mapRef}
         center={center ?? [markers[0].latitude, markers[0].longitude]}
         zoom={zoom}
         zoomControl={false}
@@ -150,6 +220,8 @@ OSMMap.propTypes = {
   draggable: PropTypes.bool,
   showTooltip: PropTypes.bool,
   mapOptions: PropTypes.object,
+  ariaLabel: PropTypes.string,
+  role: PropTypes.string,
 };
 
 export default React.memo(OSMMap);
